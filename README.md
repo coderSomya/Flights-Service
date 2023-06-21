@@ -25,33 +25,16 @@ This is a base NodeJS backend template
    PORT
 ```
 
--Inside the 'src/config' folder, create a file named 'config.json' and write the following code:
+-Go inside the 'src' folder, and execute the following command
 
 ```
-{
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
-
+npx sequelize init
 ```
 
 --if you are setting up your developement,set the values of username, password, db correctly
+
+--to run the server, execute
+
+```
+npm run dev
+```
