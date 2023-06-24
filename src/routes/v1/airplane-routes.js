@@ -8,4 +8,6 @@ const {AirplaneMiddlewares} = require("../../middlewares");
 
 router.post('/', [AirplaneMiddlewares],  AirplaneController.createAirplane);
 
+router.get('/', AirplaneController.getAirplanes);
+
 module.exports = router
