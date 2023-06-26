@@ -5,6 +5,8 @@ const router = express.Router();
 
 const {CityController} = require("../../controllers")
 
-router.post("/", CityController.createCity)
+const {CityMiddlewares} = require("../../middlewares")
+
+router.post("/", [CityMiddlewares] ,CityController.createCity)
 
 module.exports = router
