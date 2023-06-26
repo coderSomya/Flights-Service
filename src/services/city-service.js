@@ -11,7 +11,16 @@ async function createCity(data){
         
         return city;
     } catch (error) {
-        throw error
+        
+        if(error.name == 'SequelizeUniqueConstraintError' || error.name == 'SequelizeValidationError'){
+            let explanation = [];
+            error.errors.forEach( err=> {
+                explanation.push(err.message);
+            });
+         console.log(explanation);
+            throw new AppError(explanation, StatusCodes.BAD_REQUEST)
+        }
+        throw new AppError("cannot create the city", StatusCodes.INTERNAL_SERVER_ERROR)
     }
   
 }
