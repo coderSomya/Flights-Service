@@ -1,4 +1,6 @@
 'use strict';
+
+const {enums} = require('../utils/common')
 const {
   Model
 } = require('sequelize');
@@ -14,10 +16,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Seat.init({
-    row: DataTypes.INTEGER,
-    col: DataTypes.STRING,
-    airplaneId: DataTypes.INTEGER,
-    class: DataTypes.STRING
+    row:{
+    type:  DataTypes.INTEGER,
+    allowNull: false
+    },
+    col:{
+    type:  DataTypes.STRING,
+    allowNull:false
+    },
+    airplaneId:{
+      type: DataTypes.INTEGER,
+      allowNull:false
+    } ,
+    type: {
+      type: DataTypes.ENUM,
+      values: enums,
+      defaultValue: enums.ECONOMY,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Seat',
