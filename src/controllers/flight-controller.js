@@ -32,10 +32,10 @@ async function  createFlight(req, res){
 }
 
 
-async function getAirports(req, res){
+async function getFlights(req, res){
   try{
-     const airports = await AirportService.getAirports();
-     SuccessResponse.data= airports;
+     const flights = await FlightService.getFlights();
+     SuccessResponse.data= flights;
         return res.status(StatusCodes.OK).json(
           SuccessResponse
         )
@@ -87,5 +87,6 @@ async function destroyAirport(req,res){
 }
 
 module.exports = {
-    createFlight
+    createFlight,
+    getFlights
 }

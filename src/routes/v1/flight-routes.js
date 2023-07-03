@@ -8,5 +8,9 @@ const {FlightMiddlewares} = require("../../middlewares");
 
 router.post('/', [FlightMiddlewares],  FlightController.createFlight);
 
+router.get('/',
+FlightController.getFlights
+)
+
 
 module.exports = router
